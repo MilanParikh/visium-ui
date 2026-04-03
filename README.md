@@ -1,4 +1,6 @@
-# Getting Started with Create React App
+# 10x Visium Analysis pipeline and minimal React UI
+
+This project includes an analysis pipeline notebook "analysis_pipeline.ipynb" that goes through basic preprocessing and filtering of Visium data, along with ligand-receptor analysis, pathway enrichment analysis, and basic plotting. It also includes a minimal React UI that takes a json file output from the notebook and allows for visualization of the clustering and gene expression on a spatial plot, and a table of interaction analysis results. Boilerplate instructions are included below for the React app:
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
