@@ -1,6 +1,6 @@
 // src/components/SpatialPlot.js
 import React, { useEffect, useState } from "react";
-import { Box, MenuItem, Select, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
+import { Autocomplete, Box, TextField, ToggleButton, ToggleButtonGroup, Typography } from "@mui/material";
 import Plot from "react-plotly.js";
 
 export default function SpatialPlot({ data }) {
@@ -122,18 +122,20 @@ export default function SpatialPlot({ data }) {
           <ToggleButton value="genes">Genes</ToggleButton>
         </ToggleButtonGroup>
 
-        <Select
+        <Autocomplete
           size="small"
+          options={availableKeys}
           value={colorBy}
-          onChange={(e) => setColorBy(e.target.value)}
+          onChange={(event, newValue) => {
+            if (newValue) {
+              setColorBy(newValue);
+            }
+          }}
+          renderInput={(params) => (
+            <TextField {...params} placeholder="Search..." />
+          )}
           sx={{ minWidth: 260 }}
-        >
-          {availableKeys.map((key) => (
-            <MenuItem key={key} value={key}>
-              {key}
-            </MenuItem>
-          ))}
-        </Select>
+        />
       </Box>
 
       <Plot
